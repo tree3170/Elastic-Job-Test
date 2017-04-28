@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:reg="http://www.dangdang.com/schema/ddframe/reg"
+       xmlns:job="http://www.dangdang.com/schema/ddframe/job"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.dangdang.com/schema/ddframe/reg
+                        http://www.dangdang.com/schema/ddframe/reg/reg.xsd
+                        http://www.dangdang.com/schema/ddframe/job
+                        http://www.dangdang.com/schema/ddframe/job/job.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util.xsd
+                        ">
+    <!-- 引入配置文件 -->
+    <util:properties id="zk" location="classpath:zk_config.properties"/>
+
+    <!--serverLists="192.168.70.119:2181,192.168.70.119:2182,192.168.70.119:2183"-->
+    <!--configure registry center -->
+    <reg:zookeeper id="regCenter" server-lists="#{zk['host']}" namespace="#{zk['namespace']}"
+                   base-sleep-time-milliseconds="1000" max-sleep-time-milliseconds="3000" max-retries="3" />
+
+    <!--配置简单作业 -->
+    <!--<job:simple id="simpleElasticJobDemo" class="tree.SimpleElasticJobDemo"-->
+                <!--registry-center-ref="regCenter" cron="0 0/2 * * * ?"-->
+                <!--sharding-total-count="2" sharding-item-parameters="0=A,1=B"  overwrite="true"/>-->
+
+    <job:dataflow id="sequenceDataFlowDemo" registry-center-ref="regCenter" class="tree.SequenceDataFlowDemo"
+                  cron="0 0/2 * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" overwrite="true">
+    </job:dataflow>
+    <!-- 配置数据流作业-->
+   <!-- <job:dataflow id="throughputDataflow" class="xxx.MyThroughputDataflowElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" />
+-->
+    <!-- 配置脚本作业-->
+<!--    <job:script id="scriptElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" script-command-line="/your/file/path/demo.sh" />
+-->
+    <!-- 配置带监听的简单作业-->
+    <!--<job:simple id="listenerElasticJob" class="xxx.MySimpleListenerElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C">
+        <job:listener class="xx.MySimpleJobListener"/>
+        <job:distributed-listener class="xx.MyOnceSimpleJobListener" started-timeout-milliseconds="1000" completed-timeout-milliseconds="2000" />
+    </job:simple>
+-->
+    <!-- 配置带作业数据库事件追踪的简单作业-->
+<!--    <job:simple id="listenerElasticJob" class="xxx.MySimpleListenerElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" event-trace-rdb-data-source="yourDataSource">
+    </job:simple>
+-->
+</beans>
