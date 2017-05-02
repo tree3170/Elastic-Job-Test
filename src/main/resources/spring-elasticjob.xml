@@ -24,10 +24,11 @@
     <!--配置简单作业 -->
     <!--<job:simple id="simpleElasticJobDemo" class="tree.SimpleElasticJobDemo"-->
                 <!--registry-center-ref="regCenter" cron="0 0/2 * * * ?"-->
-                <!--sharding-total-count="2" sharding-item-parameters="0=A,1=B"  overwrite="true"/>-->
+                <!--sharding-total-count="2" sharding-item-parameters="0=A,1=B"  monitor-port="9888" overwrite="true"/>-->
 
-    <job:dataflow id="sequenceDataFlowDemo" registry-center-ref="regCenter" class="tree.SequenceDataFlowDemo"
-                  cron="0 0/2 * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" overwrite="true" >
+    <job:dataflow id="sequenceDataFlowDemo"  class="tree.SequenceDataFlowDemo" reconcile-interval-minutes="10"
+                  registry-center-ref="regCenter" cron="0 0/5 * * * ?"
+                  sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" monitor-port="9888"  overwrite="true" >
     </job:dataflow>
     <!-- 配置数据流作业-->
    <!-- <job:dataflow id="throughputDataflow" class="xxx.MyThroughputDataflowElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" />

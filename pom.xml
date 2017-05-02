@@ -15,6 +15,10 @@
         <spring.version>4.2.6.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
         <elasticJob.version>2.1.1</elasticJob.version>
+        <druid.version>1.0.16</druid.version>
+        <mybatis.version>3.2.7</mybatis.version>
+        <mybatis.spring.version>1.2.2</mybatis.spring.version>
+        <mysql.connector.version>5.1.31</mysql.connector.version>
     </properties>
 
     <!--<dependencyManagement>-->
@@ -156,6 +160,35 @@
                 <artifactId>jmockit</artifactId>
                 <version>1.7</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatis start -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+            <!-- mybatis end -->
+            <!--<dependency>-->
+                <!--<groupId>mysql</groupId>-->
+                <!--<artifactId>mysql-connector-java</artifactId>-->
+                <!--<version>${mysql.connector.version}</version>-->
+            <!--</dependency>-->
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.30</version>
             </dependency>
         </dependencies>
     <!--</dependencyManagement>-->
