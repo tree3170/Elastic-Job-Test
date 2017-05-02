@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Redis配置 -->
+    <bean id="redisConfig" class="com.util.JedisUtil" init-method="init"   >
+        <property name="redisServerHost" value="${redis.host}"/>
+        <property name="redisServerPort" value="${redis.port}" />
+        <property name="redisServerPassword" value="${redis.password}"/>
+        <property name="redisServerTimeout" value="5000" />
+        <!-- 定义缓存Key前缀 -->
+        <property name="keyPrefix" value="${redis.prefix}" />
+        <!-- 定义缓存开关 其中 true 表示开启动缓存；false 表示关闭缓存 -->
+        <property name="redisSwitch" value="true" />
+    </bean>
+
+</beans>

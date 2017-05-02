@@ -19,6 +19,7 @@
         <mybatis.version>3.2.7</mybatis.version>
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <mysql.connector.version>5.1.31</mysql.connector.version>
+        <redis.clients.version>2.4.2</redis.clients.version>
     </properties>
 
     <!--<dependencyManagement>-->
@@ -167,6 +168,8 @@
                 <version>${druid.version}</version>
             </dependency>
 
+
+
             <!-- mybatis start -->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -190,6 +193,20 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.30</version>
             </dependency>
+
+            <!-- jedis缓存客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>2.4.2</version>
+            </dependency>
+            <!-- /jedis缓存客户端 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.1.41</version>
+            </dependency>
+
         </dependencies>
     <!--</dependencyManagement>-->
 

@@ -22,14 +22,14 @@
                    base-sleep-time-milliseconds="1000" max-sleep-time-milliseconds="3000" max-retries="3"  />
 
     <!--配置简单作业 -->
-    <!--<job:simple id="simpleElasticJobDemo" class="tree.SimpleElasticJobDemo"-->
-                <!--registry-center-ref="regCenter" cron="0 0/2 * * * ?"-->
-                <!--sharding-total-count="2" sharding-item-parameters="0=A,1=B"  monitor-port="9888" overwrite="true"/>-->
+    <job:simple id="simpleElasticJobDemo" class="tree.SimpleElasticJobDemo"
+                registry-center-ref="regCenter" cron="0 0/2 * * * ?"
+                sharding-total-count="2" sharding-item-parameters="0=A,1=B"  monitor-port="9888" overwrite="true"/>
 
-    <job:dataflow id="sequenceDataFlowDemo"  class="tree.SequenceDataFlowDemo" reconcile-interval-minutes="10"
-                  registry-center-ref="regCenter" cron="0 0/5 * * * ?"
-                  sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" monitor-port="9888"  overwrite="true" >
-    </job:dataflow>
+    <!--<job:dataflow id="sequenceDataFlowDemo"  class="tree.SequenceDataFlowDemo" reconcile-interval-minutes="10"-->
+                  <!--registry-center-ref="regCenter" cron="0 0/5 * * * ?"-->
+                  <!--sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" monitor-port="9888"  overwrite="true" >-->
+    <!--</job:dataflow>-->
     <!-- 配置数据流作业-->
    <!-- <job:dataflow id="throughputDataflow" class="xxx.MyThroughputDataflowElasticJob" registry-center-ref="regCenter" cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C" />
 -->

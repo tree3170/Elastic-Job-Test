@@ -33,5 +33,6 @@
 
     <import resource="classpath:spring-elasticjob.xml" />
     <import resource="classpath:spring-mybatis.xml" />
+    <import resource="classpath:spring-redis.xml" />
 
 </beans>
