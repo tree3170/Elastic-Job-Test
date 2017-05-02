@@ -21,13 +21,12 @@ public class SimpleElasticJobDemo implements SimpleJob {
 
     @Override
     public void execute(ShardingContext context) {
-//        logger.error("Simple...\n SimpleElasticJobDemo .....execute start,ShardingItem="+context.getShardingItem());
+        logger.error("SimpleElasticJobDemo .....开始执行,  ShardingItem="+context.getShardingItem()+"\n");
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         switch (context.getShardingItem()) {
             case 0:
                 // do something by sharding item 0
@@ -39,8 +38,9 @@ public class SimpleElasticJobDemo implements SimpleJob {
                 // do something by sharding ite9m 2
                 break;
             // case n: ...
+            default:break;
         }
-        logger.error("SimpleElasticJobDemo .....execute end, ShardingItem="+context.getShardingItem()+"\n");
+        logger.error("SimpleElasticJobDemo .....结束执行, ShardingItem="+context.getShardingItem()+"\n");
 
     }
 }
