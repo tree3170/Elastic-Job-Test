@@ -1,6 +1,6 @@
 package com.service;
 
-import com.dto.User;
+import com.entity.User;
 
 import java.util.List;
 

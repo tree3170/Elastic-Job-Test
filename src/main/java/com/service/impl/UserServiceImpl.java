@@ -1,14 +1,11 @@
 package com.service.impl;
 
 import com.dao.UserDao;
-import com.dto.User;
+import com.entity.User;
 import com.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.annotation.Resources;
 import java.util.List;
 
 /**
@@ -23,7 +20,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> listUser() {
         List<User>  users = dao.listUser();
-        System.out.println(users);
         return users;
     }
 }

@@ -20,6 +20,7 @@
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <mysql.connector.version>5.1.31</mysql.connector.version>
         <redis.clients.version>2.4.2</redis.clients.version>
+        <profiles.dir>src/profiles</profiles.dir>
     </properties>
 
     <!--<dependencyManagement>-->
@@ -307,4 +308,48 @@
             <!--</plugin>-->
         </plugins>
     </build>
+
+    <!--设置Profile打包方式-->
+    <profiles>
+        <!--开发环境-->
+        <profile>
+            <id>dev</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>${profiles.dir}/dev</directory>
+                    </resource>
+                </resources>
+            </build>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!--测试环境-->
+        <profile>
+            <id>qa</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.xml</include>
+                            <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>${profiles.dir}/qa</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
+
 </project>

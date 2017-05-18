@@ -4,8 +4,7 @@ package com.dao;
  * Created by tree on 2017/5/2.
  */
 
-import com.dto.User;
-import org.mybatis.spring.annotation.MapperScan;
+import com.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

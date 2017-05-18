@@ -3,8 +3,8 @@
 <mapper namespace="com.dao.UserDao" >
 
 
-    <select id="listUser" resultType="com.dto.User">
-        SELECT *  FROM t_user_sign_account order by id limit 0,10
+    <select id="listUser" resultType="com.entity.User">
+        SELECT *  FROM t_user order by id
     </select>
 
 
