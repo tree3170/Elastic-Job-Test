@@ -18,7 +18,5 @@ public class UserServiceTest {
     @Test
     public void testListUser(){
         userService.listUser();
-
-
     }
 }

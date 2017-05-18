@@ -18,7 +18,7 @@
 
     <!--serverLists="192.168.70.119:2181,192.168.70.119:2182,192.168.70.119:2183"-->
     <!--configure registry center -->
-    <reg:zookeeper id="regCenter" server-lists="#{zk['host']}" namespace="#{zk['namespace']}"
+    <reg:zookeeper id="regCenter" server-lists="#{zk['zk_host']}" namespace="#{zk['namespace']}"
                    base-sleep-time-milliseconds="1000" max-sleep-time-milliseconds="3000" max-retries="3"  />
 
     <!--配置简单作业 -->

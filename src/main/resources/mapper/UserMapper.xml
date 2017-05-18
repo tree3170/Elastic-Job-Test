@@ -4,7 +4,7 @@
 
 
     <select id="listUser" resultType="com.dto.User">
-        SELECT *  FROM t_user_sign_account
+        SELECT *  FROM t_user_sign_account order by id limit 0,10
     </select>
 
 
